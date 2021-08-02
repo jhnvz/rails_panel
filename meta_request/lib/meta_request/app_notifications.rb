@@ -57,6 +57,8 @@ module MetaRequest
     # Subscribe to all events relevant to RailsPanel
     #
     def self.subscribe
+      LogSubscriber.backtrace_cleaner = ::Rails.backtrace_cleaner
+      
       new
         .subscribe('meta_request.log')
         .subscribe('sql.active_record', &SQL_BLOCK)
