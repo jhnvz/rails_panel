@@ -57,7 +57,7 @@ module MetaRequest
     # Subscribe to all events relevant to RailsPanel
     #
     def self.subscribe
-      ActiveSupport::LogSubscriber.backtrace_cleaner = ::Rails.backtrace_cleaner
+      ActiveRecord::LogSubscriber.backtrace_cleaner = ::Rails.backtrace_cleaner
       
       new
         .subscribe('meta_request.log')
